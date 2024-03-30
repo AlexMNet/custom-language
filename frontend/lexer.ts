@@ -53,7 +53,8 @@ export function tokenize(sourceCode: string): Token[] {
       src[0] == '+' ||
       src[0] == '-' ||
       src[0] == '*' ||
-      src[0] == '/'
+      src[0] == '/' ||
+      src[0] == '%'
     ) {
       tokens.push(token(src.shift(), TokenType.BinaryOperator));
     } else if (src[0] === '=') {
@@ -96,8 +97,8 @@ export function tokenize(sourceCode: string): Token[] {
   return tokens;
 }
 
-const source = await Deno.readTextFile('./test.txt');
-for (const token of tokenize(source)) {
-  console.log(token);
-}
-console.log(tokenize(source));
+// const source = await Deno.readTextFile('./test.txt');
+// for (const token of tokenize(source)) {
+//   console.log(token);
+// }
+// console.log(tokenize(source));
